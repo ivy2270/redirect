@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <title>正在轉址...</title>
+  <style>
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      text-align: center;
+      padding-top: 60px;
+      color: #333;
+      background: linear-gradient(180deg, #fff7f9, #ffeef3);
+    }
+  </style>
+</head>
+<body>
+  <h1>正在轉跳中...</h1>
+  <p>請稍候，系統將導向至抽獎登錄表單。</p>
+
+  <script>
+    // 🔗 設定「目前最新部署」的 GAS 網址
+    const LATEST_GAS_URL = "https://script.google.com/macros/s/AKfycbx0Eur1s_oerwJ2LAyMexZ9tt49GqsWE_I0lIRhDDMIlwuAjjUFStrBYS-gIdPN2MyO/exec";
+
+    // 取得目前網址的參數（例如 ?table=3&name=王醫師）
+    const params = window.location.search; // 會包含 ? 開頭
+    const redirectUrl = LATEST_GAS_URL + params;
+
+    // 有沒有參數都可以正常轉址
+    if (LATEST_GAS_URL) {
+      window.location.href = redirectUrl;
+    } else {
+      document.querySelector("h1").innerText = "轉址失敗";
+      document.querySelector("p").innerText = "系統設定錯誤，請通知管理員。";
+    }
+  </script>
+</body>
+</html>
